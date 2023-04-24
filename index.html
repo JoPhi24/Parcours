@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/HQExtrem_0.js"></script>
+        <script src="data/HQ100_1.js"></script>
+        <script src="data/HQ50_2.js"></script>
+        <script src="data/HQ10_3.js"></script>
+        <script src="data/Parcours_5.js"></script>
+        <script src="data/Centroids_6.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[48.008103934816916,7.820571023480866],[48.00978168490684,7.824288272096319]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_HQExtrem_0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_HQExtrem_0_0() {
+            return {
+                pane: 'pane_HQExtrem_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,221,249,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HQExtrem_0');
+        map.getPane('pane_HQExtrem_0').style.zIndex = 400;
+        map.getPane('pane_HQExtrem_0').style['mix-blend-mode'] = 'normal';
+        var layer_HQExtrem_0 = new L.geoJson(json_HQExtrem_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HQExtrem_0',
+            layerName: 'layer_HQExtrem_0',
+            pane: 'pane_HQExtrem_0',
+            onEachFeature: pop_HQExtrem_0,
+            style: style_HQExtrem_0_0,
+        });
+        bounds_group.addLayer(layer_HQExtrem_0);
+        map.addLayer(layer_HQExtrem_0);
+        function pop_HQ100_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_HQ100_1_0() {
+            return {
+                pane: 'pane_HQ100_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(99,175,237,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HQ100_1');
+        map.getPane('pane_HQ100_1').style.zIndex = 401;
+        map.getPane('pane_HQ100_1').style['mix-blend-mode'] = 'normal';
+        var layer_HQ100_1 = new L.geoJson(json_HQ100_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HQ100_1',
+            layerName: 'layer_HQ100_1',
+            pane: 'pane_HQ100_1',
+            onEachFeature: pop_HQ100_1,
+            style: style_HQ100_1_0,
+        });
+        bounds_group.addLayer(layer_HQ100_1);
+        map.addLayer(layer_HQ100_1);
+        function pop_HQ50_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_HQ50_2_0() {
+            return {
+                pane: 'pane_HQ50_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(21,105,194,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HQ50_2');
+        map.getPane('pane_HQ50_2').style.zIndex = 402;
+        map.getPane('pane_HQ50_2').style['mix-blend-mode'] = 'normal';
+        var layer_HQ50_2 = new L.geoJson(json_HQ50_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HQ50_2',
+            layerName: 'layer_HQ50_2',
+            pane: 'pane_HQ50_2',
+            onEachFeature: pop_HQ50_2,
+            style: style_HQ50_2_0,
+        });
+        bounds_group.addLayer(layer_HQ50_2);
+        map.addLayer(layer_HQ50_2);
+        function pop_HQ10_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_HQ10_3_0() {
+            return {
+                pane: 'pane_HQ10_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,35,126,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HQ10_3');
+        map.getPane('pane_HQ10_3').style.zIndex = 403;
+        map.getPane('pane_HQ10_3').style['mix-blend-mode'] = 'normal';
+        var layer_HQ10_3 = new L.geoJson(json_HQ10_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HQ10_3',
+            layerName: 'layer_HQ10_3',
+            pane: 'pane_HQ10_3',
+            onEachFeature: pop_HQ10_3,
+            style: style_HQ10_3_0,
+        });
+        bounds_group.addLayer(layer_HQ10_3);
+        map.addLayer(layer_HQ10_3);
+        map.createPane('pane_GoogleSatellite_4');
+        map.getPane('pane_GoogleSatellite_4').style.zIndex = 404;
+        var layer_GoogleSatellite_4 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_4',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_GoogleSatellite_4;
+        map.addLayer(layer_GoogleSatellite_4);
+        function pop_Parcours_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Parcours_5_0() {
+            return {
+                pane: 'pane_Parcours_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,5,30,1.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Parcours_5');
+        map.getPane('pane_Parcours_5').style.zIndex = 405;
+        map.getPane('pane_Parcours_5').style['mix-blend-mode'] = 'normal';
+        var layer_Parcours_5 = new L.geoJson(json_Parcours_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Parcours_5',
+            layerName: 'layer_Parcours_5',
+            pane: 'pane_Parcours_5',
+            onEachFeature: pop_Parcours_5,
+            style: style_Parcours_5_0,
+        });
+        bounds_group.addLayer(layer_Parcours_5);
+        map.addLayer(layer_Parcours_5);
+        function pop_Centroids_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SpotName'] !== null ? autolinker.link(feature.properties['SpotName'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SpotInfo'] !== null ? autolinker.link(feature.properties['SpotInfo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Centroids_6_0() {
+            return {
+                pane: 'pane_Centroids_6',
+                shape: 'triangle',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,30,42,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Centroids_6');
+        map.getPane('pane_Centroids_6').style.zIndex = 406;
+        map.getPane('pane_Centroids_6').style['mix-blend-mode'] = 'normal';
+        var layer_Centroids_6 = new L.geoJson(json_Centroids_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Centroids_6',
+            layerName: 'layer_Centroids_6',
+            pane: 'pane_Centroids_6',
+            onEachFeature: pop_Centroids_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_Centroids_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Centroids_6);
+        map.addLayer(layer_Centroids_6);
+        setBounds();
+        resetLabels([layer_Centroids_6]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Centroids_6]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Centroids_6]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Centroids_6]);
+        });
+        </script>
+    </body>
+</html>
